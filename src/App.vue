@@ -1,12 +1,32 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    |
+    <span v-for="item in routerLinks" :key="item.label">
+      <router-link :to="item.link">{{ item.label }}</router-link> |
+    </span>
   </nav>
-  <router-view/>
+  <router-view />
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      routerLinks: [
+        { label: "Test1", link: "/threeTest1" },
+        { label: "Test2", link: "/threeTest2" }
+      ]
+    }
+  }
+
+}
+</script>
+
 <style>
+body {
+  margin: 0;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -16,7 +36,7 @@
 }
 
 nav {
-  padding: 30px;
+  padding: 10px;
 }
 
 nav a {
