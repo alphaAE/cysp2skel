@@ -13,8 +13,10 @@
   },
   "main": "background.js",
   "dependencies": {
+    "@esotericsoftware/spine-threejs": "^4.1.22",
     "core-js": "^3.8.3",
-    "three": "^0.144.0",
+    "spine-ts-threejs": "^1.1.7",
+    "three": "^0.141.0",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"

@@ -26,6 +26,11 @@ const routes = [
     name: "threeTest2",
     component: () => import("../views/ThreeTest2.vue"),
   },
+  {
+    path: "/threeTest3",
+    name: "threeTest3",
+    component: () => import("../views/ThreeTest3.vue"),
+  },
 ];
 
 const router = createRouter({

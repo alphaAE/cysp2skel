@@ -4,9 +4,10 @@
 
 <script>
 import * as THREE from 'three'
-import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js';
 
-let scene, camera, renderer;
+let scene, camera, renderer, controls;
 export default {
     data() {
         return {
@@ -17,7 +18,7 @@ export default {
     methods: {
         initThreeScene() {
             this.viewNode = this.$refs.view;
-            // Three Test1
+            
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(
                 75,
@@ -31,15 +32,14 @@ export default {
             renderer.setSize(window.innerWidth, window.innerHeight - 38.4);
             this.viewNode.appendChild(renderer.domElement);
 
+            controls = new OrbitControls(camera, renderer.domElement);
+            controls.minPolarAngle =0;
+            controls.maxPolarAngle = Math.PI;
+            controls.minDistance = 1;
+            controls.maxDistance = 800;
+
             var loader = new FBXLoader();
             loader.load("../assets/test2.fbx", function (obj) {
-                //渲染阴影
-                obj.traverse(function (child) {
-                    if (child.isMesh) {
-                        child.castShadow = true;
-                        child.receiveShadow = true;
-                    }
-                });
                 scene.add(obj);
             });
 

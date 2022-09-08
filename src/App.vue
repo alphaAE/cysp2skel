@@ -14,7 +14,8 @@ export default {
     return {
       routerLinks: [
         { label: "Test1", link: "/threeTest1" },
-        { label: "Test2", link: "/threeTest2" }
+        { label: "Test2", link: "/threeTest2" },
+        { label: "Test3", link: "/threeTest3" }
       ]
     }
   }
